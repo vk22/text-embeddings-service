@@ -1,13 +1,5 @@
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
 pydantic==2.9.2
-numpy==1.23.5
-laion-clap==1.1.6
-torch==2.2.2
-torchaudio==2.2.2
-torchvision==0.17.2
-transformers==4.39.3
-librosa==0.10.2.post1
-ftfy
-regex
-tqdm
+numpy==1.26.4
+laion-clap
