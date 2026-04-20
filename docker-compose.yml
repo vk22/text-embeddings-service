@@ -1,7 +1,8 @@
 services:
   python-text-ml:
     build:
-      context: ./python-text-ml
+      context: .
+      dockerfile: Dockerfile
     container_name: python-text-ml
     ports:
       - "6000:6000"
