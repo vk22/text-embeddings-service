@@ -1,15 +1,15 @@
-version: "3.9"
-
 services:
   python-text-ml:
-    build: .
+    build:
+      context: ./python-text-ml
     container_name: python-text-ml
     ports:
-      - "6001:6000"
+      - "6000:6000"
     environment:
       CLAP_CACHE_DIR: /app/.cache/clap
-      CLAP_ENABLE_FUSION: "false"
-      CLAP_AMODEL: "HTSAT-base"
+      HF_HOME: /app/.cache/clap
+      TORCH_HOME: /app/.cache/clap
+      XDG_CACHE_HOME: /app/.cache/clap
     volumes:
       - clap_cache:/app/.cache/clap
     restart: unless-stopped
