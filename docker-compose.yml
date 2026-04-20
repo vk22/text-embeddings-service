@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  python-text-ml:
+    build: .
+    container_name: python-text-ml
+    ports:
+      - "8001:8000"
+    environment:
+      CLAP_CACHE_DIR: /app/.cache/clap
+      CLAP_ENABLE_FUSION: "false"
+      CLAP_AMODEL: "HTSAT-base"
+    volumes:
+      - clap_cache:/app/.cache/clap
+    restart: unless-stopped
+
+volumes:
+  clap_cache:
