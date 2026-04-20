@@ -5,7 +5,7 @@ services:
     build: .
     container_name: python-text-ml
     ports:
-      - "8001:8000"
+      - "6001:6000"
     environment:
       CLAP_CACHE_DIR: /app/.cache/clap
       CLAP_ENABLE_FUSION: "false"
