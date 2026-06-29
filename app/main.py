@@ -44,7 +44,7 @@ def load_model():
         from app.services.embedder import EmbedderService
 
         state["stage"] = "init_service"
-        embedder = EmbedderService()
+        embedder = EmbedderService(state=state)
 
         state["stage"] = "ready"
         state["model_loaded"] = True

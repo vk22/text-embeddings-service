@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: python-text-ml
+    mem_limit: ${TEXT_ML_MEMORY_LIMIT:-1800m}
+    memswap_limit: ${TEXT_ML_MEMORY_LIMIT:-1800m}
     ports:
       - "5000:5000"
     environment:
@@ -11,6 +13,16 @@ services:
       HF_HOME: /app/.cache/clap
       TORCH_HOME: /app/.cache/clap
       XDG_CACHE_HOME: /app/.cache/clap
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      CLAP_TORCH_THREADS: "1"
+      CLAP_TEXT_ONLY: "1"
+      CLAP_PRUNE_AUDIO: "1"
+      CLAP_DYNAMIC_QUANTIZE: "0"
+      CLAP_MAX_TEXT_CHARS: "1000"
     volumes:
       - clap_cache:/app/.cache/clap
     restart: unless-stopped
