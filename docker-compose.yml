@@ -7,7 +7,7 @@ services:
     mem_limit: ${TEXT_ML_MEMORY_LIMIT:-1800m}
     memswap_limit: ${TEXT_ML_MEMORY_LIMIT:-1800m}
     ports:
-      - "5000:5000"
+      - "127.0.0.1:5000:5000"
     environment:
       CLAP_CACHE_DIR: /app/.cache/clap
       HF_HOME: /app/.cache/clap
